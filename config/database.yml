@@ -19,8 +19,10 @@ test:
   socket: /tmp/mysql.sock
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
   database: fifa_production
   pool: 5
-  password:
+  username: root
+  password: /tmp/mysql.sock

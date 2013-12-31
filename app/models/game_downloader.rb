@@ -33,17 +33,14 @@ class GameDownloader
       attrs = {}
 
       attrs['match_type'] = match.at('div[@class="clearfix"]').text.strip.split(':').first
-      date = match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip
-      attrs['date'] = Time.now - match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.to_i.hour if match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.match /hour/
-      attrs['date'] = Time.now - match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.to_i.day if match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.match /day/
-      attrs['date'] = Time.now - match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.to_i.week if match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.match /week/
-      attrs['date'] = attrs['date'].to_date
+      num = match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.to_i
+      word = match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip
+      
       attrs['rival_name'] = score.search('*[@class="ng-binding"]')[3].text
       attrs['my_team'] = score.at('*[@class="match-crest align-left"]').at('img')['src']
       attrs['rival_team'] = score.at('*[@class="match-crest align-right"]').at('img')['src']
       attrs['my_score'] = score.search('*[@class="ng-binding"]')[0].text
       attrs['rival_score'] = score.search('*[@class="ng-binding"]')[2].text
-
 
       info.each do |i|
         mine = "my_#{i.search('div[@class="text-center"]')[1].text}".downcase.gsub(' ', '_')
@@ -53,6 +50,11 @@ class GameDownloader
       end
 
       attrs['digest'] = Digest::MD5.hexdigest(attrs.to_s)
+
+      attrs['date'] = Time.now - num.hour if word.match /hour/
+      attrs['date'] = Time.now - num.day if word.match /day/
+      attrs['date'] = Time.now - num.week if word.match /week/
+      attrs['date'] = attrs['date'].to_date
 
       all_matches << attrs
     end

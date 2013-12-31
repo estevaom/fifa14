@@ -8,7 +8,9 @@ namespace :db do
     require File.expand_path("config/environment")
     puts "Running matches update..."
     GameDownloader.new.execute
-    puts "Finished."
+    puts "Finished.\n\n"
+
+    puts Match.report
 
   end
 

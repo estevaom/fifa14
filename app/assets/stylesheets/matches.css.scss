@@ -1,3 +1,132 @@
 // Place all the styles related to the matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.parent {
+  color: #9ca5ab;
+  width: 1026px;
+  margin: 1.5em auto;
+    
+  .date {
+    display: inline;
+    font-size: 12px;
+    font-family: 'Trade Gothic',Arial,sans-serif;
+
+    .title {
+      display: inline;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .time {
+      display: inline;
+    }
+  }
+
+  .container {
+    background-color: #fff;
+    width: 986px;
+    margin: auto;
+    padding: 0 1.6em;
+
+    .header {
+
+      .match_score {
+        height: 116px;
+        text-align: center;
+        background-color: #FFF;
+
+        img {
+          height: 64px;
+        }
+
+        .avatar {
+          height: 64px;
+          margin: 2.3em 4.4em 0;
+          &.left {
+            float: left;
+          }
+          &.right {
+            float: right;
+          }
+        }
+
+        .name {
+          color: #3a89c9;
+          font-weight: bold;
+          font-family: 'Trade Gothic',Arial,sans-serif;
+          width: 9.7em;
+          font-size: 1.5em;
+          margin-top: 2.5em;
+
+          &:hover {
+            color: #999;
+          }
+
+          &.left {
+            float: left;
+            text-align: right;
+          }
+
+          &.right {
+            float: right;
+            text-align: left;
+          }
+        }
+
+        .score {
+          color: #FFF;
+          width: 1.5em;
+          display: inline-block;
+          margin: 0em 0.25em;
+          height: 100%;
+          font-size: 4em;
+          font-family: Impact;
+          font-weight: bold;
+          line-height: 2.3em;
+
+          &.L {background: transparent url("/assets/score_bg.png") 82px -3px;}
+          &.D {background: transparent url("/assets/score_bg.png") -2px -3px;}
+          &.W {background: transparent url("/assets/score_bg.png") 82px 120px;}
+        }
+
+        .div {
+          text-rendering: optimizeLegibility;
+          font-size: 3em;
+          display: inline;
+          font-family: Impact;
+          position: relative;
+          top: -0.2em;
+        }
+      }
+    }
+    .body {
+      display: none;
+
+      .row {
+        padding: 12px 0 0 0;
+        height: 26px;
+        color: #666;
+        font-family: 'Trade Gothic',Arial,sans-serif;
+        font-size: 1.1em;
+        font-weight: bold;
+
+        &:nth-child(1) { 
+          background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAAJCAYAAACsXV5YAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0U1OUQ5OEM5NUE2MTFFMjk4QTU4QjAxMEM0RkM4RDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0U1OUQ5OEQ5NUE2MTFFMjk4QTU4QjAxMEM0RkM4RDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3RTU5RDk4QTk1QTYxMUUyOThBNThCMDEwQzRGQzhENSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3RTU5RDk4Qjk1QTYxMUUyOThBNThCMDEwQzRGQzhENSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgCPbV0AAAH5SURBVHja7J3JcsQgDERRVQ75/x/uVO5Zx1rR66tBEg3GasHU2Dnn/fwMO7/DnJ/Zw5j++9wjfi8O/sJ3l7aWHJdn3w79q/3Z0LgrYMv9AwCAB7Tc/6RxaDj3ahCvEvrpoR0FjkcvtpPTeD3s6OEYX32uSJ+fSeVbQDJqzva82z15XlW08Cga2HD71YUD7zg9RN2EokC0eL1JHBvxrsZ2PsUSWM2l4L/UvhrakqMPFYzFw2eEQJ9qv6WYDuTOq72+SjYyhVTliev0okVEWyuMy0uIV4r57MKF5/inFhOyRJIV+58sCCkKwB0CEO46xasGcWiAzcgCQNVpvJxtZI4/ssChxPcmusBQLqaT3i/XNVSRbEy7SltVtLAiXrucjmf3y+TbGr5L1jy+72ze+DMGK/SNgIU3xCycZcerS3mKHmPUKfu0mwBZAnDKDQINmicVrisVcdRi3yLpmMVT59+sV19nn3DNfMtpvQ3lYLs/z3j5tvAtRvzX8CXm+lp/KvbTmYNOa0DFsanpeu60N63/zpB0MOdbY7/x9otdvlYMv+wti/bjLXxmiZqznE/iredIC/gX6+VK0cl+jBgEgPUPB6s4NuLgHQOApPyaePknAAQfPACSfwAAYJ8BzC88knDDIWCOAQAkHAAAAADgm4yoAQAAAIbjQ4ABACHOmxdRKosOAAAAAElFTkSuQmCC);
+          background-position: 50% 0;
+          background-repeat: no-repeat;
+        }
+        &:nth-child(odd) { background-color: #EAEAEA;}
+        &:nth-child(even) { background-color: white;}
+        
+
+        span {
+          width: 33%;
+          display: inline-block;
+          text-align: center;
+          float:left;
+        }
+      }
+    }
+  }
+}

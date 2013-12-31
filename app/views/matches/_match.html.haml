@@ -1,0 +1,21 @@
+.parent
+  .date
+    .title= "#{match.match_type}:"
+    .time= "#{time_ago_in_words(match.date)} ago"
+  .container
+    .header
+      .match_score
+        %span.avatar.left= image_tag match.my_team
+        %span.name.left lmagus
+        %span.score{class: match.result}= match.my_score
+        %span.div :
+        %span.score{class: match.result}= match.rival_score
+        %span.avatar.right= image_tag match.rival_team
+        %span.name.right= match.rival_name
+        
+    .body
+      - match.attributes.select {|x,y| x.match /my/}.delete_if {|x,y| x.match /team/ }.delete_if {|x,y| x.match /score/ }.each do |a|
+        .row
+          %span.left= match.send a[0]
+          %span.center= a[0].sub('my_', '').gsub('_', ' ').titleize
+          %span.right= match.send "rival#{a[0].sub('my', '')}"
