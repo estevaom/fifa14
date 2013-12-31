@@ -17,7 +17,7 @@
 
 $(function() {
     $('.container').click(function(){
-        $('.body').not($(this).children('.body')).hide('slow');
-        $(this).children('.body').toggle('slow');
+        $('.body').not($(this).children('.body')).slideUp('slow');
+        $(this).children('.body').slideToggle('slow');
     });
 });

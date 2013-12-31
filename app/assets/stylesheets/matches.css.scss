@@ -11,6 +11,7 @@
     display: inline;
     font-size: 12px;
     font-family: 'Trade Gothic',Arial,sans-serif;
+    margin-left: 1.7em;
 
     .title {
       display: inline;
@@ -52,15 +53,21 @@
         }
 
         .name {
-          color: #3a89c9;
+          
           font-weight: bold;
           font-family: 'Trade Gothic',Arial,sans-serif;
           width: 9.7em;
           font-size: 1.5em;
           margin-top: 2.5em;
 
-          &:hover {
-            color: #999;
+          a {
+            background: white;
+            color: #3a89c9;
+            text-decoration: none;
+
+            &:hover {
+              color: #999;
+            }
           }
 
           &.left {
@@ -85,9 +92,9 @@
           font-weight: bold;
           line-height: 2.3em;
 
-          &.L {background: transparent url("/assets/score_bg.png") 82px -3px;}
-          &.D {background: transparent url("/assets/score_bg.png") -2px -3px;}
-          &.W {background: transparent url("/assets/score_bg.png") 82px 120px;}
+          &.L {background: transparent url("/assets/score_bg.png") 82px -2px;}
+          &.D {background: transparent url("/assets/score_bg.png") -2px -2px;}
+          &.W {background: transparent url("/assets/score_bg.png") 82px 121px;}
         }
 
         .div {

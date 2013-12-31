@@ -16,7 +16,7 @@ class Match < ActiveRecord::Base
     message << "\nPass accuracy: #{matches.pluck(:my_pass_accuracy).inject(:+).to_f/matches.pluck(:my_pass_accuracy).size}%"
     message << "\nPossession: #{matches.pluck(:my_possession).inject(:+).to_f/matches.pluck(:my_possession).size}%"
     message << "\nOverall W:#{matches.select {|x| x.result == "W"}.size} D:#{matches.select {|x| x.result == "D"}.size} L:#{matches.select {|x| x.result =="L"}.size}"
-    puts message
+    message
   end
 
   def result
