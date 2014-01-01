@@ -17,7 +17,16 @@
 
 $(function() {
     $('.container').click(function(){
-        $('.body').not($(this).children('.body')).slideUp('slow');
-        $(this).children('.body').slideToggle('slow');
+        $('.body').not($(this).children('.body')).slideUp('800');
+        $('.expand').not($(this).find('.expand')).html('+');
+        $(this).children('.body').slideToggle('800');
+
+        var signal = $(this).find('.expand').html();
+
+        if (signal == '+')
+            $(this).find('.expand').html('-');
+        else
+            $(this).find('.expand').html('+');
+        
     });
 });

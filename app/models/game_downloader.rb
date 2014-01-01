@@ -51,6 +51,7 @@ class GameDownloader
 
       attrs['digest'] = Digest::MD5.hexdigest(attrs.to_s)
 
+      attrs['date'] = Time.now - num.minute if word.match /minute/
       attrs['date'] = Time.now - num.hour if word.match /hour/
       attrs['date'] = Time.now - num.day if word.match /day/
       attrs['date'] = Time.now - num.week if word.match /week/

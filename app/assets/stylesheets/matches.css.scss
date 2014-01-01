@@ -9,7 +9,7 @@
     
   .date {
     display: inline;
-    font-size: 12px;
+    font-size: 11px;
     font-family: 'Trade Gothic',Arial,sans-serif;
     margin-left: 1.7em;
 
@@ -33,6 +33,7 @@
     .header {
 
       .match_score {
+        position: relative;
         height: 116px;
         text-align: center;
         background-color: #FFF;
@@ -49,6 +50,26 @@
           }
           &.right {
             float: right;
+          }
+        }
+
+        .expand {
+          color: #3a89c9;
+          background-color: #F7F7F7;
+          position: absolute;
+          right: -22px;
+          font-size: 2.2em;
+          top: 0em;
+          border: solid 1px #eaeaea;
+          display: block;
+          height: 48px;
+          width: 49px;
+          line-height: 1.55em;
+          cursor: pointer;
+
+          &:hover {
+            color: #F7F7F7;
+            background-color: #3A89C9;
           }
         }
 
@@ -93,7 +114,7 @@
           line-height: 2.3em;
 
           &.L {background: transparent url("/assets/score_bg.png") 82px -2px;}
-          &.D {background: transparent url("/assets/score_bg.png") -2px -2px;}
+          &.D {background: transparent url("/assets/score_bg.png") -2px 121px;}
           &.W {background: transparent url("/assets/score_bg.png") 82px 121px;}
         }
 
@@ -115,7 +136,7 @@
         height: 26px;
         color: #666;
         font-family: 'Trade Gothic',Arial,sans-serif;
-        font-size: 1.1em;
+        font-size: 1.2em;
         font-weight: bold;
 
         &:nth-child(1) { 
@@ -132,6 +153,10 @@
           display: inline-block;
           text-align: center;
           float:left;
+
+          &.center {
+            font-weight: normal;
+          }
         }
       }
     }

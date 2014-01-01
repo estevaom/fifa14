@@ -1,7 +1,7 @@
 .parent
   .date
     .title= "#{match.match_type}:"
-    .time= "#{time_ago_in_words(match.date)} ago"
+    .time= "#{time_ago_in_words(match.date).sub('about', '')} ago"
   .container
     .header
       .match_score
@@ -12,6 +12,7 @@
         %span.score{class: match.result}= match.rival_score
         %span.avatar.right= image_tag match.rival_team
         %span.name.right= link_to match.rival_name, "http://www.easports.com/fifa/football-club/profile/PC/#{match.rival_name}", target: '_blank'
+        %span.expand +
         
     .body
       - match.attributes.select {|x,y| x.match /my/}.delete_if {|x,y| x.match /team/ }.delete_if {|x,y| x.match /score/ }.each do |a|
