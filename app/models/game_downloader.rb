@@ -28,7 +28,7 @@ class GameDownloader
 
     matches.each do |match|
       score = match.at('div[@class="clearfix"]').next.next
-      info = match.at('ul[@class="match-info"]').search('li')
+      info = match.at('ul[@class^="match-info"]').search('li')
 
       attrs = {}
 
