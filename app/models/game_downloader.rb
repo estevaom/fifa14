@@ -55,6 +55,7 @@ class GameDownloader
       attrs['date'] = Time.now - num.hour if word.match /hour/
       attrs['date'] = Time.now - num.day if word.match /day/
       attrs['date'] = Time.now - num.week if word.match /week/
+      attrs['date'] = Time.now - num.month if word.match /month/
       attrs['date'] = attrs['date'].to_date
 
       all_matches << attrs
