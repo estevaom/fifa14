@@ -36,17 +36,16 @@ class GameDownloader
       num = match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip.to_i
       word = match.at('div[@class="clearfix"]').text.strip.split(':').last.split('ago').first.strip
       
-      attrs['rival_name'] = score.search('*[@class="ng-binding"]')[3].text
       attrs['my_team'] = score.at('*[@class="match-crest align-left"]').at('img')['src']
       attrs['rival_team'] = score.at('*[@class="match-crest align-right"]').at('img')['src']
-      attrs['my_score'] = score.search('*[@class="ng-binding"]')[0].text
-      attrs['rival_score'] = score.search('*[@class="ng-binding"]')[2].text
+      attrs['my_score'] = score.search('*[@class="ng-binding"]')[0].text.to_i
+      attrs['rival_score'] = score.search('*[@class="ng-binding"]')[2].text.to_i
 
       info.each do |i|
         mine = "my_#{i.search('div[@class="text-center"]')[1].text}".downcase.gsub(' ', '_')
         rival = "rival_#{i.search('div[@class="text-center"]')[1].text}".downcase.gsub(' ', '_')
-        attrs[mine] = i.search('div[@class="text-center"]')[0].text
-        attrs[rival] = i.search('div[@class="text-center"]')[2].text
+        attrs[mine] = i.search('div[@class="text-center"]')[0].text.gsub('%', '').to_i
+        attrs[rival] = i.search('div[@class="text-center"]')[2].text.gsub('%', '').to_i
       end
 
       attrs['digest'] = Digest::MD5.hexdigest(attrs.to_s)
@@ -57,6 +56,8 @@ class GameDownloader
       attrs['date'] = Time.now - num.week if word.match /week/
       attrs['date'] = Time.now - num.month if word.match /month/
       attrs['date'] = attrs['date'].to_date
+
+      attrs['rival_name'] = score.search('*[@class="ng-binding"]')[3].text
 
       all_matches << attrs
     end
